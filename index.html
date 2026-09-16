@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Profile Biodata</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #333333;
+            display: flex;
+            justify-content: center;
+            padding: 20px 10px;
+        }
+
+        /* Container Utama */
+        .main-container {
+            width: 100%;
+            max-width: 950px;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            border-collapse: collapse;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Border pemisah antar section */
+        .section-row {
+            border-bottom: 2px solid #374151;
+        }
+
+        /* --- Section 1: Menu / Navigasi --- */
+        .nav-table {
+            width: 100%;
+            border-collapse: collapse;
+            padding: 10px 20px;
+        }
+
+        .nav-brand {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1f2937;
+            padding: 15px 25px;
+            text-align: left;
+        }
+
+        .nav-menu {
+            text-align: right;
+            padding: 15px 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #4b5563;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: #111827;
+        }
+
+        /* --- Section 2: Header / Hero --- */
+        .hero-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hero-content {
+            width: 50%;
+            padding: 35px 30px;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        .hero-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .hero-desc {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 12px;
+            color: #1f2937;
+            background-color: #f3f4f6;
+            border: 1px solid #9ca3af;
+            border-radius: 3px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .hero-btn:hover {
+            background-color: #e5e7eb;
+        }
+
+        .hero-image-cell {
+            width: 50%;
+            padding: 25px 30px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .image-placeholder-hero {
+            width: 100%;
+            height: 240px;
+            background-color: #d1d5db;
+            color: #6b7280;
+            font-size: 32px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+
+        /* --- Section 3: About Me / Biodata --- */
+        .about-container {
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .about-header-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .icon-cell {
+            width: 40px;
+            vertical-align: middle;
+            text-align: right;
+            font-size: 26px;
+            color: #374151;
+            padding-right: 10px;
+        }
+
+        .about-title-cell {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .about-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .about-subtitle {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        .biodata-grid-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 12px 10px;
+        }
+
+        .biodata-box {
+            width: 33.33%;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
+            padding: 12px 10px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            color: #374151;
+            border-radius: 2px;
+        }
+
+        /* --- Section 4: Portofolio --- */
+        .portfolio-container {
+            padding: 30px 25px 40px 25px;
+            text-align: center;
+        }
+
+        .portfolio-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 25px;
+        }
+
+        .portfolio-grid-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 16px 0;
+        }
+
+        .portfolio-card {
+            width: 33.33%;
+            border: 1px solid #9ca3af;
+            padding: 10px;
+            background-color: #ffffff;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .portfolio-img-placeholder {
+            width: 100%;
+            height: 140px;
+            background-color: #d1d5db;
+            color: #6b7280;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-item-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .portfolio-item-desc {
+            font-size: 12px;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tabel Layout Utama Keseluruhan Halaman -->
+    <table class="main-container" id="page-layout">
+        
+        <!-- SECTION 1: MENU / NAVBAR -->
+        <tr class="section-row">
+            <td>
+                <table class="nav-table">
+                    <tr>
+                        <td class="nav-brand">Brand</td>
+                        <td class="nav-menu">
+                            <a href="#header">Header</a>
+                            <a href="#biodata">Biodata</a>
+                            <a href="#portofolio">Portofolio</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- SECTION 2: HEADER (JUDUL DI KIRI & GAMBAR DI KANAN) -->
+        <tr class="section-row" id="header">
+            <td>
+                <table class="hero-table">
+                    <tr>
+                        <!-- Kolom Kiri: Teks & Judul -->
+                        <td class="hero-content">
+                            <h1 class="hero-title">Selamat Datang di Website Saya</h1>
+                            <p class="hero-desc">
+                                Ini adalah contoh header dengan dua kolom. Kolom kiri berisi teks seperti ini.
+                            </p>
+                            <a href="#" class="hero-btn">Pelajari Lebih Lanjut</a>
+                        </td>
+                        <!-- Kolom Kanan: Gambar Placeholder -->
+                        <td class="hero-image-cell">
+                            <div class="image-placeholder-hero">
+                                600 &times; 400
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- SECTION 3: BIODATA DENGAN 6 BOX -->
+        <tr class="section-row" id="biodata">
+            <td class="about-container">
+                <!-- Header About Me -->
+                <table class="about-header-table">
+                    <tr>
+                        <td class="about-title-cell">
+                            <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                                <span style="font-size: 22px; transform: rotate(10deg); display: inline-block;">✎</span>
+                                <span class="about-title">About Me</span>
+                            </div>
+                            <p class="about-subtitle">A brief introduction about myself</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- 6 Box Biodata menggunakan Table -->
+                <table class="biodata-grid-table">
+                    <!-- Baris 1 -->
+                    <tr>
+                        <td class="biodata-box">Full Name</td>
+                        <td class="biodata-box">Education</td>
+                        <td class="biodata-box">Pekerjaan</td>
+                    </tr>
+                    <!-- Baris 2 -->
+                    <tr>
+                        <td class="biodata-box">Contact</td>
+                        <td class="biodata-box">Hobi</td>
+                        <td class="biodata-box">Alamat</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- SECTION 4: PORTOFOLIO -->
+        <tr id="portofolio">
+            <td class="portfolio-container">
+                <h2 class="portfolio-title">Portofolio</h2>
+
+                <!-- 3 Kolom Card Portofolio menggunakan Table -->
+                <table class="portfolio-grid-table">
+                    <tr>
+                        <!-- Card 1 -->
+                        <td class="portfolio-card">
+                            <div class="portfolio-img-placeholder">
+                                350 &times; 200
+                            </div>
+                            <div class="portfolio-item-title">Proyek 1</div>
+                            <div class="portfolio-item-desc">Deskripsi proyek 1.</div>
+                        </td>
+
+                        <!-- Card 2 -->
+                        <td class="portfolio-card">
+                            <div class="portfolio-img-placeholder">
+                                350 &times; 200
+                            </div>
+                            <div class="portfolio-item-title">Proyek 2</div>
+                            <div class="portfolio-item-desc">Deskripsi proyek 2.</div>
+                        </td>
+
+                        <!-- Card 3 -->
+                        <td class="portfolio-card">
+                            <div class="portfolio-img-placeholder">
+                                350 &times; 200
+                            </div>
+                            <div class="portfolio-item-title">Proyek 3</div>
+                            <div class="portfolio-item-desc">Deskripsi proyek 3.</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
