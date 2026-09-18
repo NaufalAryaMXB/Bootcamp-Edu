@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Profile Biodata - Sesi 2</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CONTAINER UTAMA -->
+    <div class="main-container" id="page-layout">
+        
+        <!-- SECTION 1: MENU / NAVBAR -->
+        <nav class="navbar" id="navbar">
+            <a href="#" class="nav-brand">Brand</a>
+            <ul class="nav-links">
+                <li><a href="#header">Header</a></li>
+                <li><a href="#biodata">Biodata</a></li>
+                <li><a href="#portofolio">Portofolio</a></li>
+            </ul>
+        </nav>
+
+        <!-- SECTION 2: HEADER / HERO -->
+        <header class="hero-section" id="header">
+            <!-- Kolom Kiri: Teks & Informasi -->
+            <div class="hero-content">
+                <h1 class="hero-title">Selamat Datang di Website Saya</h1>
+                <p class="hero-desc">
+                    Ini adalah contoh header dengan dua kolom. Kolom kiri berisi teks seperti ini.
+                </p>
+                <a href="#biodata" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+            </div>
+
+            <!-- Kolom Kanan: Gambar Hero -->
+            <div class="hero-image-wrapper">
+                <div class="hero-image-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+                        alt="Foto Profil Dodi" 
+                        class="hero-image"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- SECTION 3: BIODATA / ABOUT ME -->
+        <section class="biodata-section" id="biodata">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">A brief introduction about myself</p>
+            </div>
+
+            <!-- Grid 6 Kotak Biodata -->
+            <div class="biodata-grid">
+                <!-- Card 1: Nama -->
+                <div class="biodata-card">
+                    <span class="biodata-label">Full Name:</span>
+                    <span class="biodata-val">Dodi</span>
+                </div>
+
+                <!-- Card 2: Pendidikan -->
+                <div class="biodata-card">
+                    <span class="biodata-label">Education:</span>
+                    <span class="biodata-val">S1 Informatika</span>
+                </div>
+
+                <!-- Card 3: Pekerjaan -->
+                <div class="biodata-card">
+                    <span class="biodata-label">Pekerjaan:</span>
+                    <span class="biodata-val">Programmer</span>
+                </div>
+
+                <!-- Card 4: Kontak -->
+                <div class="biodata-card">
+                    <span class="biodata-label">Contact:</span>
+                    <span class="biodata-val">dodi@example.com</span>
+                </div>
+
+                <!-- Card 5: Hobi -->
+                <div class="biodata-card">
+                    <span class="biodata-label">Hobi:</span>
+                    <span class="biodata-val">Membaca, Coding</span>
+                </div>
+
+                <!-- Card 6: Alamat -->
+                <div class="biodata-card">
+                    <span class="biodata-label">Alamat:</span>
+                    <span class="biodata-val">Jakarta</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PORTOFOLIO -->
+        <section class="portfolio-section" id="portofolio">
+            <div class="section-header">
+                <h2 class="section-title">Portofolio</h2>
+            </div>
+
+            <!-- Grid 3 Card Portofolio -->
+            <div class="portfolio-grid">
+                <!-- Card 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrap">
+                        <img 
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
+                            alt="Proyek 1" 
+                            class="portfolio-img"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-item-title">Proyek 1</h3>
+                        <p class="portfolio-item-desc">Deskripsi proyek 1.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrap">
+                        <img 
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                            alt="Proyek 2" 
+                            class="portfolio-img"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-item-title">Proyek 2</h3>
+                        <p class="portfolio-item-desc">Deskripsi proyek 2.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrap">
+                        <img 
+                            src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" 
+                            alt="Proyek 3" 
+                            class="portfolio-img"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-item-title">Proyek 3</h3>
+                        <p class="portfolio-item-desc">Deskripsi proyek 3.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p class="footer-copy">&copy; 2024 Dodi. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
