@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Profile Biodata Modern dengan Bootstrap 5 - Sesi 3 Eduwork">
+    <title>Halaman Profile Biodata</title>
+
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarMain" data-bs-offset="80" tabindex="0">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-3" id="navbarMain">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#header">
+                <span class="brand-icon bg-primary text-white rounded-3 px-2 py-1 fs-6">
+                    <i class="bi bi-code-slash"></i>
+                </span>
+                <span>Dodi<span class="text-primary">.dev</span></span>
+            </a>
+            
+            <!-- Hamburger Toggler (Responsive Mobile) -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu Links -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3 text-center py-3 py-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#header"><i class="bi bi-house-door me-1"></i> Header</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#biodata"><i class="bi bi-person me-1"></i> Biodata</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portofolio"><i class="bi bi-briefcase me-1"></i> Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary btn-sm px-3 rounded-pill mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <i class="bi bi-envelope-paper me-1"></i> Hubungi Saya
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= MAIN CONTAINER ================= -->
+    <main class="main-wrapper">
+
+        <!-- ================= SECTION 1: HEADER / HERO ================= -->
+        <section class="hero-section py-5 py-lg-6" id="header">
+            <div class="container py-lg-4">
+                <div class="row align-items-center g-5">
+                    <!-- Kolom Kiri: Teks & Informasi -->
+                    <div class="col-12 col-lg-6 text-center text-lg-start">
+                        <div class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3 fw-medium">
+                            <i class="bi bi-stars me-1"></i> Frontend & Web Developer
+                        </div>
+                        <h1 class="display-4 fw-extrabold hero-title mb-3">
+                            Selamat Datang di <span class="text-gradient">Website Saya</span>
+                        </h1>
+                        <p class="lead text-secondary mb-4 hero-desc">
+                            Ini adalah contoh header dengan dua kolom menggunakan grid Bootstrap 5 yang sepenuhnya responsif dan dinamis.
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                            <a href="#biodata" class="btn btn-primary btn-lg px-4 rounded-pill shadow-sm">
+                                <i class="bi bi-arrow-down-circle me-2"></i>Pelajari Lebih Lanjut
+                            </a>
+                            <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#bioDetailModal">
+                                <i class="bi bi-info-circle me-2"></i>Lihat Quick Info
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan: Gambar Hero -->
+                    <div class="col-12 col-lg-6 text-center">
+                        <div class="hero-image-container position-relative mx-auto">
+                            <div class="hero-glow position-absolute"></div>
+                            <img 
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+                                alt="Foto Profil Dodi" 
+                                class="img-fluid rounded-4 shadow-lg hero-img position-relative z-1"
+                                loading="lazy"
+                            >
+                            <!-- Floating Badge Card -->
+                            <div class="hero-floating-badge bg-white shadow-lg rounded-4 p-3 d-flex align-items-center gap-3 text-start position-absolute z-2 border">
+                                <div class="badge-icon bg-success-subtle text-success p-2 rounded-3 fs-4">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold text-dark">Tersedia untuk Proyek</h6>
+                                    <small class="text-muted">Siap Bekerja Sama</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: BIODATA / ABOUT ME ================= -->
+        <section class="biodata-section py-5 bg-light" id="biodata">
+            <div class="container py-lg-4">
+                <div class="text-center mb-5">
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-medium mb-2">
+                        Profil Lengkap
+                    </span>
+                    <h2 class="section-title fw-bold display-6 mb-2">About Me</h2>
+                    <p class="text-muted section-subtitle">A brief introduction about myself</p>
+                </div>
+
+                <!-- Grid 6 Kotak Biodata (Responsive Grid: col-12, col-md-6, col-lg-4) -->
+                <div class="row g-4">
+                    <!-- Card 1: Nama -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 info-card p-4 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box bg-primary-subtle text-primary rounded-4 p-3 fs-4">
+                                    <i class="bi bi-person-vcard"></i>
+                                </div>
+                                <div>
+                                    <span class="text-muted small text-uppercase fw-semibold d-block">Full Name</span>
+                                    <h5 class="fw-bold text-dark mb-0">Dodi</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Pendidikan -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 info-card p-4 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box bg-info-subtle text-info rounded-4 p-3 fs-4">
+                                    <i class="bi bi-mortarboard"></i>
+                                </div>
+                                <div>
+                                    <span class="text-muted small text-uppercase fw-semibold d-block">Education</span>
+                                    <h5 class="fw-bold text-dark mb-0">S1 Informatika</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Pekerjaan -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 info-card p-4 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box bg-success-subtle text-success rounded-4 p-3 fs-4">
+                                    <i class="bi bi-laptop"></i>
+                                </div>
+                                <div>
+                                    <span class="text-muted small text-uppercase fw-semibold d-block">Pekerjaan</span>
+                                    <h5 class="fw-bold text-dark mb-0">Programmer</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Kontak -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 info-card p-4 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box bg-warning-subtle text-warning rounded-4 p-3 fs-4">
+                                    <i class="bi bi-envelope-at"></i>
+                                </div>
+                                <div>
+                                    <span class="text-muted small text-uppercase fw-semibold d-block">Contact</span>
+                                    <h5 class="fw-bold text-dark mb-0 text-truncate" style="max-width: 200px;">dodi@example.com</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Hobi -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 info-card p-4 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box bg-danger-subtle text-danger rounded-4 p-3 fs-4">
+                                    <i class="bi bi-controller"></i>
+                                </div>
+                                <div>
+                                    <span class="text-muted small text-uppercase fw-semibold d-block">Hobi</span>
+                                    <h5 class="fw-bold text-dark mb-0">Membaca, Coding</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Alamat -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 info-card p-4 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box bg-secondary-subtle text-secondary rounded-4 p-3 fs-4">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div>
+                                    <span class="text-muted small text-uppercase fw-semibold d-block">Alamat</span>
+                                    <h5 class="fw-bold text-dark mb-0">Jakarta</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button Trigger Modal Biodata -->
+                <div class="text-center mt-5">
+                    <button class="btn btn-outline-primary px-4 py-2 rounded-pill fw-medium" data-bs-toggle="modal" data-bs-target="#bioDetailModal">
+                        <i class="bi bi-file-earmark-person me-2"></i>Buka Modal Informasi Lengkap
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: PORTOFOLIO ================= -->
+        <section class="portfolio-section py-5" id="portofolio">
+            <div class="container py-lg-4">
+                <div class="text-center mb-5">
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-medium mb-2">
+                        Karya Terbaru
+                    </span>
+                    <h2 class="section-title fw-bold display-6 mb-2">Portofolio</h2>
+                    <p class="text-muted section-subtitle">Daftar beberapa proyek terbaik yang telah diselesaikan</p>
+                </div>
+
+                <!-- Grid 3 Card Portofolio (Responsive: col-12, col-md-6, col-lg-4) -->
+                <div class="row g-4">
+                    <!-- Project Card 1 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 portfolio-card overflow-hidden transition-all">
+                            <div class="portfolio-img-wrap position-relative overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
+                                    alt="Proyek 1 - Dashboard Analytics" 
+                                    class="card-img-top portfolio-img"
+                                    loading="lazy"
+                                >
+                                <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill shadow-sm">Web App</span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h4 class="card-title fw-bold text-dark mb-2">Proyek 1</h4>
+                                <p class="card-text text-muted flex-grow-1">
+                                    Deskripsi proyek 1: Dashboard analitik modern dengan visualisasi data performa secara real-time.
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                    <span class="small text-muted"><i class="bi bi-calendar3 me-1"></i> 2024</span>
+                                    <button class="btn btn-primary btn-sm px-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                                        <i class="bi bi-eye me-1"></i> Detail Proyek
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 portfolio-card overflow-hidden transition-all">
+                            <div class="portfolio-img-wrap position-relative overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                                    alt="Proyek 2 - E-Commerce Platform" 
+                                    class="card-img-top portfolio-img"
+                                    loading="lazy"
+                                >
+                                <span class="badge bg-success position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill shadow-sm">E-Commerce</span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h4 class="card-title fw-bold text-dark mb-2">Proyek 2</h4>
+                                <p class="card-text text-muted flex-grow-1">
+                                    Deskripsi proyek 2: Platform toko online terintegrasi payment gateway dan manajemen inventori.
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                    <span class="small text-muted"><i class="bi bi-calendar3 me-1"></i> 2024</span>
+                                    <button class="btn btn-primary btn-sm px-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                                        <i class="bi bi-eye me-1"></i> Detail Proyek
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 portfolio-card overflow-hidden transition-all">
+                            <div class="portfolio-img-wrap position-relative overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" 
+                                    alt="Proyek 3 - Landing Page Interaktif" 
+                                    class="card-img-top portfolio-img"
+                                    loading="lazy"
+                                >
+                                <span class="badge bg-info text-white position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill shadow-sm">Landing Page</span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h4 class="card-title fw-bold text-dark mb-2">Proyek 3</h4>
+                                <p class="card-text text-muted flex-grow-1">
+                                    Deskripsi proyek 3: Website landing page interaktif dengan performa optimal dan SEO-friendly.
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                    <span class="small text-muted"><i class="bi bi-calendar3 me-1"></i> 2024</span>
+                                    <button class="btn btn-primary btn-sm px-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                                        <i class="bi bi-eye me-1"></i> Detail Proyek
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer bg-dark text-white py-4 mt-5 border-top border-secondary">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-12 col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy; 2024 Dodi. All rights reserved.</p>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <div class="social-links d-inline-flex gap-3">
+                        <a href="https://github.com" target="_blank" class="text-white-50 hover-text-white fs-5" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="text-white-50 hover-text-white fs-5" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-white-50 hover-text-white fs-5" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODALS (POPUP MODAL BOOTSTRAP) ================= -->
+
+    <!-- 1. POPUP MODAL: BIODATA QUICK INFO -->
+    <div class="modal fade" id="bioDetailModal" tabindex="-1" aria-labelledby="bioDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white border-0 py-3 rounded-top-4">
+                    <h5 class="modal-title fw-bold" id="bioDetailModalLabel">
+                        <i class="bi bi-person-badge me-2"></i>Informasi Lengkap Dodi
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Dodi" class="rounded-circle shadow-sm mb-3 border border-3 border-primary" style="width: 90px; height: 90px; object-fit: cover;">
+                        <h4 class="fw-bold mb-1 text-dark">Dodi</h4>
+                        <p class="text-muted mb-0">Programmer & Web Developer</p>
+                    </div>
+                    <ul class="list-group list-group-flush rounded-3 border">
+                        <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                            <span class="text-muted"><i class="bi bi-mortarboard text-primary me-2"></i>Pendidikan</span>
+                            <span class="fw-semibold">S1 Informatika</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                            <span class="text-muted"><i class="bi bi-laptop text-success me-2"></i>Pekerjaan</span>
+                            <span class="fw-semibold">Programmer</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                            <span class="text-muted"><i class="bi bi-geo-alt text-danger me-2"></i>Lokasi</span>
+                            <span class="fw-semibold">Jakarta, Indonesia</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                            <span class="text-muted"><i class="bi bi-controller text-warning me-2"></i>Hobi</span>
+                            <span class="fw-semibold">Membaca, Coding</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#contactModal">Hubungi Saya</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. POPUP MODAL: CONTACT FORM -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white border-0 py-3 rounded-top-4">
+                    <h5 class="modal-title fw-bold" id="contactModalLabel">
+                        <i class="bi bi-envelope-fill text-primary me-2"></i>Kirim Pesan
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="contactForm" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah terkirim.'); bootstrap.Modal.getInstance(document.getElementById('contactModal')).hide();">
+                        <div class="mb-3">
+                            <label for="senderName" class="form-label fw-medium text-dark">Nama Lengkap</label>
+                            <input type="text" class="form-control rounded-3" id="senderName" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senderEmail" class="form-label fw-medium text-dark">Email</label>
+                            <input type="email" class="form-control rounded-3" id="senderEmail" placeholder="nama@contoh.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senderMessage" class="form-label fw-medium text-dark">Pesan / Pertanyaan</label>
+                            <textarea class="form-control rounded-3" id="senderMessage" rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary rounded-pill py-2 fw-medium">
+                                <i class="bi bi-send-fill me-2"></i>Kirim Sekarang
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. POPUP MODAL: PROYEK 1 DETAIL -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="projectModal1Label">Detail Proyek 1: Dashboard Analytics</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Dashboard Analytics" class="img-fluid rounded-4 mb-3 w-100 shadow-sm" style="max-height: 350px; object-fit: cover;">
+                    <h5 class="fw-bold text-dark">Tentang Proyek</h5>
+                    <p class="text-muted">
+                        Proyek ini dibangun untuk memudahkan pemantauan metrik bisnis, statistik pengguna, serta penjualan produk secara real-time dengan tampilan visual grafik yang interaktif dan responsif di semua perangkat.
+                    </p>
+                    <div class="mb-3">
+                        <span class="badge bg-primary-subtle text-primary me-1">Bootstrap 5</span>
+                        <span class="badge bg-info-subtle text-info me-1">Chart.js</span>
+                        <span class="badge bg-success-subtle text-success me-1">REST API</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. POPUP MODAL: PROYEK 2 DETAIL -->
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-labelledby="projectModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="projectModal2Label">Detail Proyek 2: E-Commerce Platform</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="E-Commerce Platform" class="img-fluid rounded-4 mb-3 w-100 shadow-sm" style="max-height: 350px; object-fit: cover;">
+                    <h5 class="fw-bold text-dark">Tentang Proyek</h5>
+                    <p class="text-muted">
+                        Aplikasi toko daring modern yang mendukung sistem katalog barang dinamis, keranjang belanja (cart), kalkulator ongkos kirim otomatis, serta integrasi gateway pembayaran yang aman.
+                    </p>
+                    <div class="mb-3">
+                        <span class="badge bg-primary-subtle text-primary me-1">Bootstrap 5</span>
+                        <span class="badge bg-danger-subtle text-danger me-1">JavaScript</span>
+                        <span class="badge bg-warning-subtle text-warning me-1">Payment Gateway</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. POPUP MODAL: PROYEK 3 DETAIL -->
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-labelledby="projectModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="projectModal3Label">Detail Proyek 3: Landing Page Interaktif</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80" alt="Landing Page Interaktif" class="img-fluid rounded-4 mb-3 w-100 shadow-sm" style="max-height: 350px; object-fit: cover;">
+                    <h5 class="fw-bold text-dark">Tentang Proyek</h5>
+                    <p class="text-muted">
+                        Desain landing page bertema tech startup yang mengedepankan kecepatan loading, skor SEO tinggi, tata letak mobile-first, serta animasi mikro yang memanjakan mata pengunjung.
+                    </p>
+                    <div class="mb-3">
+                        <span class="badge bg-primary-subtle text-primary me-1">Bootstrap 5</span>
+                        <span class="badge bg-success-subtle text-success me-1">HTML5 Semantic</span>
+                        <span class="badge bg-purple-subtle text-primary me-1">CSS Animation</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle (Termasuk Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
