@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tugas Sesi 5 Eduwork - Komponen E-Commerce Daftar Produk dengan JavaScript Looping">
+    <title>E-Commerce Store - Sesi 5</title>
+    
+    <!-- Google Fonts (Poppins & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Edu<span class="highlight">Store</span></span>
+            </a>
+
+            <div class="nav-search">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Cari produk impianmu...">
+            </div>
+
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn" title="Keranjang Belanja">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="tagline"><i class="fa-solid fa-bolt"></i> Promo Spesial Pekan Ini</span>
+                <h1>Temukan Produk Terbaik dengan Penawaran Terbaik</h1>
+                <p>Koleksi produk pilihan berkualitas tinggi dengan garansi resmi dan pengiriman super cepat ke seluruh Indonesia.</p>
+                <a href="#katalog" class="btn-cta">
+                    <span>Lihat Produk</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FILTER & KATALOG ================= -->
+    <main class="container catalog-section" id="katalog">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">Daftar Produk</h2>
+                <p class="section-subtitle">Dibuat secara dinamis menggunakan array data & looping JavaScript</p>
+            </div>
+
+            <!-- Filter Kategori -->
+            <div class="category-filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="all">Semua</button>
+                <button class="filter-btn" data-category="Gadget">Gadget</button>
+                <button class="filter-btn" data-category="Aksesoris">Aksesoris</button>
+                <button class="filter-btn" data-category="Audio">Audio</button>
+                <button class="filter-btn" data-category="Wearable">Wearable</button>
+            </div>
+        </div>
+
+        <!-- ================= DAFTAR PRODUK (RENDER VIA JS) ================= -->
+        <div class="product-grid" id="productContainer">
+            <!-- Konten produk akan dimuat oleh script.js -->
+        </div>
+
+        <!-- Empty State (Jika pencarian tidak ditemukan) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fa-solid fa-box-open"></i>
+            <h3>Produk tidak ditemukan</h3>
+            <p>Coba gunakan kata kunci pencarian yang lain atau ganti kategori.</p>
+        </div>
+    </main>
+
+    <!-- ================= TOAST NOTIFIKASI ================= -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Edu<span class="highlight">Store</span></span>
+                </a>
+                <p>Tugas Pertemuan 1 - Sesi 5 Eduwork: Pembuatan komponen e-commerce dan rendering array data dengan looping JavaScript.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduStore. Dibuat untuk Tugas Sesi 5 Eduwork.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
