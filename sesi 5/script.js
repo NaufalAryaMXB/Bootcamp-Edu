@@ -238,6 +238,5 @@ function addToCart(productId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Jalankan looping pertama kali untuk menampilkan semua produk
     renderProducts(products);
 });
