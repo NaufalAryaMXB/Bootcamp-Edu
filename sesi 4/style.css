@@ -1,0 +1,499 @@
+/* ==========================================================================
+   TUGAS SESI 4 - EDUWORK: PORTFOLIO LANDING PAGE MODERN BOOTSTRAP 5
+   Fokus: Grid Bootstrap, Warna & Gambar, Responsif, Modal, Carousel, Efek Hover
+   ========================================================================== */
+
+/* --------------------------------------------------
+   1. Design Tokens & CSS Variables
+   -------------------------------------------------- */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-subtle: rgba(37, 99, 235, 0.08);
+    --primary-glow: rgba(37, 99, 235, 0.35);
+
+    --secondary: #06b6d4;
+    --secondary-hover: #0891b2;
+    --accent: #7c3aed;
+
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    --gradient-dark: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+
+    --dark: #0f172a;
+    --dark-surface: #1e293b;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+
+    --bg-body: #ffffff;
+    --bg-light: #f8fafc;
+    --border-color: #e2e8f0;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-full: 9999px;
+
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+    --shadow-lg: 0 20px 35px -10px rgba(37, 99, 235, 0.15), 0 10px 15px -5px rgba(15, 23, 42, 0.05);
+
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------
+   2. Base & Typography
+   -------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-body);
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.section-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* --------------------------------------------------
+   3. Navbar
+   -------------------------------------------------- */
+.custom-navbar {
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+}
+
+.brand-icon {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.nav-link {
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: #cbd5e1 !important;
+    padding: 0.5rem 0.9rem !important;
+    border-radius: var(--radius-full);
+    transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #60a5fa !important;
+    background-color: rgba(37, 99, 235, 0.15);
+}
+
+/* --------------------------------------------------
+   4. Hero Section
+   -------------------------------------------------- */
+.hero-section {
+    position: relative;
+    background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.06) 0%, transparent 45%),
+                linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+.hero-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.hero-title {
+    font-size: clamp(2.3rem, 5vw, 3.5rem);
+    line-height: 1.18;
+}
+
+.hero-img-box {
+    max-width: 440px;
+    position: relative;
+}
+
+.hero-img {
+    width: 100%;
+    aspect-ratio: 4/4.5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-slow);
+}
+
+.hero-img:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.hero-glow {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+}
+
+/* Floating Badges on Hero */
+.hero-floating-badge {
+    position: absolute;
+    bottom: -15px;
+    left: -20px;
+    z-index: 2;
+    animation: floatBadge 3.8s ease-in-out infinite;
+}
+
+.hero-floating-badge-2 {
+    position: absolute;
+    top: 25px;
+    right: -20px;
+    z-index: 2;
+    animation: floatBadge2 4.2s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes floatBadge2 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* --------------------------------------------------
+   5. Efek Hover & Card Animations
+   -------------------------------------------------- */
+.hover-lift {
+    transition: var(--transition);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md) !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+.info-card {
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+}
+
+.icon-box {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.hover-lift:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Image Zoom Effect for Cards */
+.portfolio-img-wrap {
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.portfolio-card:hover .portfolio-img {
+    transform: scale(1.08);
+}
+
+/* --------------------------------------------------
+   6. Komponen Carousel (Bootstrap Carousel)
+   -------------------------------------------------- */
+.carousel-portfolio-wrap {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+.carousel-portfolio-wrap .carousel-item {
+    height: 480px;
+    background-color: var(--dark);
+    position: relative;
+}
+
+.carousel-portfolio-wrap .carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.68);
+    transition: transform 6s ease;
+}
+
+.carousel-portfolio-wrap .carousel-item.active img {
+    transform: scale(1.05);
+}
+
+.carousel-glass-caption {
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 2.25rem;
+    bottom: 2.25rem;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: var(--transition);
+}
+
+.carousel-indicators .active {
+    width: 28px;
+    border-radius: 12px;
+    background-color: var(--primary);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(6px);
+    background-size: 45%;
+    transition: var(--transition);
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* --------------------------------------------------
+   7. Skills & Service Cards
+   -------------------------------------------------- */
+.skill-badge-item {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    transition: var(--transition);
+}
+
+.skill-badge-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.75rem;
+    height: 100%;
+}
+
+/* --------------------------------------------------
+   8. Testimonial Cards
+   -------------------------------------------------- */
+.testimonial-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    height: 100%;
+}
+
+/* --------------------------------------------------
+   9. Buttons & Micro-Animations
+   -------------------------------------------------- */
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px var(--primary-glow);
+}
+
+.btn-gradient {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-gradient:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px var(--primary-glow);
+    filter: brightness(1.08);
+}
+
+.social-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* --------------------------------------------------
+   10. Modals
+   -------------------------------------------------- */
+.modal-content {
+    border-radius: var(--radius-lg);
+    border: none;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+    overflow: hidden;
+}
+
+.modal-header-gradient {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    padding: 1.25rem 1.75rem;
+}
+
+/* --------------------------------------------------
+   11. Responsiveness (Mobile, Tablet, Desktop)
+   -------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-img-box {
+        max-width: 380px;
+    }
+    
+    .hero-floating-badge {
+        left: 0;
+        bottom: -10px;
+    }
+
+    .hero-floating-badge-2 {
+        right: 0;
+        top: 10px;
+    }
+
+    .carousel-portfolio-wrap .carousel-item {
+        height: 400px;
+    }
+
+    .carousel-glass-caption {
+        bottom: 1.5rem;
+        padding: 1.25rem;
+        width: 90%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-img-box {
+        max-width: 300px;
+    }
+
+    .hero-floating-badge,
+    .hero-floating-badge-2 {
+        position: static !important;
+        animation: none;
+        margin-top: 10px;
+        display: inline-flex !important;
+    }
+
+    .carousel-portfolio-wrap .carousel-item {
+        height: 360px;
+    }
+
+    .carousel-glass-caption h4 {
+        font-size: 1.15rem;
+    }
+
+    .carousel-glass-caption p {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-size: 0.85rem;
+    }
+}
