@@ -1,6 +1,6 @@
 # 📚 Eduwork Fullstack Web Development — Pertemuan 1
 
-Dokumentasi lengkap seluruh materi, tugas, dan proyek pembelajaran dari **Sesi 1 hingga Sesi 22** pada program Fullstack Web Development Eduwork.
+Dokumentasi lengkap seluruh materi, tugas, dan proyek pembelajaran dari **Sesi 1 hingga Sesi 24** pada program Fullstack Web Development Eduwork.
 
 ---
 
@@ -18,7 +18,8 @@ Dokumentasi lengkap seluruh materi, tugas, dan proyek pembelajaran dari **Sesi 1
 
 ```
 Pertemuan 1/
-├── README.md                 # Dokumentasi master seluruh sesi (Sesi 1 - 22)
+├── README.md                 # Dokumentasi master seluruh sesi (Sesi 1 - 24)
+├── myapp/                    # Proyek utuh aplikasi E-Commerce "EduShop" (Laravel 11)
 ├── sesi 1/ - sesi 3/         # Fundamental HTML (Struktur, Tag Semantik, Form, Tabel)
 ├── sesi 4/ - sesi 6/         # Fundamental CSS & Layout (Box Model, Flexbox, Responsive)
 ├── sesi 7/ - sesi 9/         # Pemrograman PHP Native (Logika, Fungsi, Array, Form Handling)
@@ -30,14 +31,17 @@ Pertemuan 1/
 ├── sesi 19/                  # Role User & Admin (Migrasi Role, Middleware Admin 403)
 ├── sesi 20/                  # Integrasi View via HomeController (Kategori & Produk Dinamis)
 ├── sesi 21/                  # Form Tambah Produk & Kategori (Route product.store & product-category.store)
-└── sesi 22/                  # Fitur Lengkap Edit & Hapus (PUT/DELETE, Validasi, Dialog Konfirmasi)
+├── sesi 22/                  # Fitur Lengkap Edit & Hapus (PUT/DELETE, Validasi, Dialog Konfirmasi)
+├── sesi 23/                  # Dashboard Admin: Metrik Jumlah Produk, Jumlah Klik Produk, Jumlah Kategori
+└── sesi 24/                  # Fitur Klik Produk & Penerapannya di Halaman Utama (Route products.click)
 ```
 
-> **Catatan Proyek Aktif:** Proyek aplikasi web aktif dijalankan dan dikembangkan langsung pada root Laragon di **`C:\laragon\www\myapp`**.
+> **Catatan Folder Proyek (`myapp/`):**
+> Folder **`myapp/`** di root direktori ini berisi salinan lengkap proyek Laravel E-Commerce **"EduShop"** yang telah terintegrasi dari seluruh sesi (Sesi 15–24), sinkron dengan proyek aktif di Laragon **`C:\laragon\www\myapp`**.
 
 ---
 
-## 📖 Rangkuman Kurikulum & Progres Tugas (Sesi 1 — 22)
+## 📖 Rangkuman Kurikulum & Progres Tugas (Sesi 1 — 24)
 
 ### 🔹 Modul 1: Web Fundamental & Styling (Sesi 1 – 6)
 - **Sesi 1 – 3 (HTML Dasar & Semantik):**
@@ -141,6 +145,28 @@ Pertemuan 1/
   - Dilengkapi dialog konfirmasi JavaScript (`onsubmit="return confirm('...');"`) dan form `@method('DELETE')`.
   - Hak akses edit dan hapus dilindungi khusus untuk Admin.
 
+#### 📈 Sesi 23: Dashboard Admin Terintegrasi & Metrik Klik Produk
+- **Migrasi Kolom Klik Produk:**
+  - Menambahkan kolom `klik` pada tabel `products` menggunakan migrasi Laravel (`database/migrations/2026_11_13_000001_add_klik_to_products_table.php`).
+  - Memperbarui model `Product` agar kolom `klik` dan `clicks` masuk dalam `$fillable` dan `$casts`.
+- **DashboardController (`app/Http/Controllers/DashboardController.php`):**
+  - Menghitung **Jumlah Produk**: `Product::count()` (variabel `$jumlahProduk` / `$totalProducts`).
+  - Menghitung **Jumlah Kategori**: `Category::count()` (variabel `$jumlahKategori` / `$totalCategories`).
+  - Menghitung **Jumlah Klik Produk**: `Product::sum('klik') ?: Product::sum('clicks')` (variabel `$jumlahKlikProduk` / `$totalClicks`).
+  - Mengirim seluruh metrik data ke view `dashboard.blade.php`.
+- **Penyesuaian Front-End Dashboard (`resources/views/dashboard.blade.php`):**
+  - Menampilkan 3 kartu ringkasan utama (*Jumlah Produk*, *Jumlah Kategori*, dan *Jumlah Klik Produk*) secara dinamis dari controller.
+  - Menampilkan tabel produk paling banyak diklik dan distribusi produk berdasarkan kategori.
+
+#### 🖱️ Sesi 24: Fitur Klik Produk & Penerapan di Halaman Utama
+- **Route & Controller Klik Produk (`ProductController@click`):**
+  - Menambahkan route publik `GET /products/{product}/click` (`products.click`) dan `POST /products/{product}/click` (`product.click`) pada `routes/web.php`.
+  - Method `ProductController@click` mencatat penambahan klik pada kolom `klik` dan `clicks` di database, mengembalikan respons JSON jika diakses via AJAX/Fetch, atau mengarahkan ke halaman detail produk (`products.show`) dengan pencegahan double-counting (`clicked_already`).
+- **Penerapan pada Halaman Utama (`welcome.blade.php` & `HomeController.php`):**
+  - Gambar produk, judul produk, dan tombol **Detail** di halaman utama diarahkan melalui `route('products.click', $product->id)`.
+  - Setiap kartu produk menampilkan badge jumlah klik terkini (`{{ number_format($product->klik ?? $product->clicks ?? 0) }} klik`).
+  - Bagian **Produk Paling Sering Dilihat Pengunjung** di `HomeController` diurutkan otomatis berdasarkan jumlah klik terbanyak.
+
 ---
 
 ## 🔑 Kredensial Pengujian Akun
@@ -155,15 +181,20 @@ Untuk menguji fitur autentikasi, middleware, dashboard admin, dan aksi CRUD:
 
 ---
 
-## 🚀 Panduan Menjalankan Proyek di Laragon
+## 🚀 Panduan Menjalankan Proyek
 
 1. **Jalankan Laragon:**
    - Buka aplikasi Laragon, lalu klik **"Start All"** (memastikan Apache dan MySQL aktif pada port default).
 
 2. **Buka Terminal di Folder Project:**
-   ```bash
-   cd C:\laragon\www\myapp
-   ```
+   - Via folder Laragon:
+     ```bash
+     cd C:\laragon\www\myapp
+     ```
+   - Atau via salinan folder project di repositori ini:
+     ```bash
+     cd "c:\Users\MSI\Documents\Code\Eduwork\Pertemuan 1\myapp"
+     ```
 
 3. **Migrasi & Seeding Database (Jika Diperlukan):**
    ```bash
